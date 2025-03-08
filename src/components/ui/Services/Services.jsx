@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 import GridDistortion from "@/components/animation/GridDistortion/GridDistortion";
 
 // Import images statically
-import ServiceImage1 from "../../../../public/images/slide1.jpg";
-import ServiceImage2 from "../../../../public/images/slide1.jpg";
-import ServiceImage3 from "../../../../public/images/slide1.jpg";
+import ServiceImage1 from "../../../../public/services/WAGON-REPAIR.jpg";
+import ServiceImage2 from "../../../../public/services/Labor.jpeg";
+import ServiceImage3 from "../../../../public/services/railway-track.jpg";
 
 // Animation Variants
 const fadeIn = {
@@ -46,7 +46,9 @@ const Services = () => {
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-6xl text-center">
-        <h2 className="text-4xl font-bold text-green-700 mb-12">Our Services</h2>
+        <h2 className="text-4xl font-bold text-green-700 mb-12">
+          Our Services
+        </h2>
 
         <div className="flex flex-col gap-12">
           {services.map((service, index) => (
@@ -72,7 +74,9 @@ const Services = () => {
 
               {/* Text Content */}
               <div className="w-full md:w-1/2 p-8 flex flex-col justify-center text-center md:text-left">
-                <h3 className="text-2xl font-semibold text-green-700">{service.title}</h3>
+                <h3 className="text-2xl font-semibold text-green-700">
+                  {service.title}
+                </h3>
                 <p className="text-gray-600 mt-2">{service.description}</p>
               </div>
             </motion.div>

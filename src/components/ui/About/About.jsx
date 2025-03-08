@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import AboutImage from "../../../../public/images/slide1.jpg";
+import AboutImage from "../../../../public/images/GGMV-logo.png";
 import SplashCursor from "@/components/animation/SplashCursor/SplashCursor";
 
 const About = () => {

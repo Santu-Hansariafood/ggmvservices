@@ -1,0 +1,32 @@
+[
+  {
+    "image": "/images/railwaywagon.webp",
+    "title": "Reliable Railway Solutions",
+    "description": "We provide top-notch railway infrastructure and solutions.",
+    "extraText": "Efficiency and durability at its best."
+  },
+  {
+    "image": "/images/slide1.jpg",
+    "title": "Innovative Engineering",
+    "description": "Our team is committed to delivering cutting-edge solutions.",
+    "extraText": "Pushing the boundaries of technology."
+  },
+  {
+    "image": "/images/slide1.jpg",
+    "title": "Sustainable Growth",
+    "description": "Eco-friendly solutions for a better tomorrow.",
+    "extraText": "Sustainability at the core of our business."
+  },
+  {
+    "image": "/images/slide1.jpg",
+    "title": "Advanced Technology",
+    "description": "Leveraging AI and automation in railway systems.",
+    "extraText": "Smart, efficient, and future-ready solutions."
+  },
+  {
+    "image": "/images/slide1.jpg",
+    "title": "Customer-Centric Services",
+    "description": "Dedicated to providing the best customer experience.",
+    "extraText": "Your satisfaction is our priority."
+  }
+]

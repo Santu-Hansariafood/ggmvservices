@@ -1,9 +1,9 @@
 "use client"
 
 import dynamic from "next/dynamic";
-import ProfileImage1 from "../../../../public/images/slide1.jpg";
-import ProfileImage2 from "../../../../public/images/slide1.jpg";
-import ProfileImage3 from "../../../../public/images/slide1.jpg";
+import ProfileImage1 from "../../../../public/images/woner/rahul.webp";
+import ProfileImage2 from "../../../../public/images/woner/woner2.webp";
+import ProfileImage3 from "../../../../public/images/woner/woner-3.webp";
 
 const Cards = dynamic(()=>import("@/components/common/Cards/Cards"));
 const DecryptedText = dynamic(()=>import("@/components/animation/DecryptedText/DecryptedText"));
@@ -12,8 +12,8 @@ const Directors = () => {
   const teamMembers = [
     {
       image: ProfileImage1,
-      name: "John Doe",
-      title: "Expert Railway Wagon Contractor",
+      name: "Rahul Gupta",
+      title: "CEO & Founder",
       socialLinks: {
         facebook: "https://facebook.com/johndoe",
         instagram: "https://instagram.com/johndoe",
@@ -23,8 +23,8 @@ const Directors = () => {
     },
     {
       image: ProfileImage2,
-      name: "Jane Smith",
-      title: "Specialist in Labor Workforce Management",
+      name: "Suresh Gupta",
+      title: "CEO & Founder",
       socialLinks: {
         facebook: "https://facebook.com/janesmith",
         instagram: "https://instagram.com/janesmith",
@@ -34,8 +34,8 @@ const Directors = () => {
     },
     {
       image: ProfileImage3,
-      name: "David Johnson",
-      title: "Leader in Logistics & Supply Chain Solutions",
+      name: "Gayatri Gupta",
+      title: "CEO & Founder",
       socialLinks: {
         facebook: "https://facebook.com/davidjohnson",
         instagram: "https://instagram.com/davidjohnson",

@@ -6,7 +6,7 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn, FaXTwitter } from 'react-icons/
 
 const Cards = ({ image, name, title, socialLinks }) => {
   return (
-    <div className="w-full sm:w-[350px] h-[350px] rounded-lg shadow-lg overflow-hidden group relative">
+    <div className="w-full sm:w-[350px] h-[450px] rounded-lg shadow-lg overflow-hidden group relative">
       {/* Image Section */}
       <div className="relative w-full h-[70%] overflow-hidden">
         <Image 
