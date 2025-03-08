@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-      unoptimized: true, // ✅ Allows loading images from the public folder
+      unoptimized: true,
     },
-    reactStrictMode: true, // ✅ Recommended for better debugging
+    reactStrictMode: true,
   };
   
   export default nextConfig;
