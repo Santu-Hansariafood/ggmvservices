@@ -33,12 +33,9 @@ const Header = () => {
   return (
     <header className="bg-gray-900 text-white w-full fixed top-0 left-0 shadow-md z-50">
       <div className="container mx-auto flex items-center justify-between p-4">
-        {/* Logo with Link to "/" */}
         <Link href="/" className="flex items-center">
           <Image src={logo} alt="Logo" width={70} height={50} />
         </Link>
-
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-6">
           {navItems.map((item) => (
             <Link
@@ -52,8 +49,6 @@ const Header = () => {
             </Link>
           ))}
         </nav>
-
-        {/* Mobile Menu Button */}
         <button
           className="md:hidden text-xl focus:outline-none"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -61,8 +56,6 @@ const Header = () => {
           {menuOpen ? <FaTimes /> : <FaBars />}
         </button>
       </div>
-
-      {/* Mobile Navigation */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div

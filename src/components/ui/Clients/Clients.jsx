@@ -9,7 +9,7 @@ const Client = ({ data }) => {
   const [width, setWidth] = useState(0);
 
   useEffect(() => {
-    if (typeof window === "undefined") return; // Prevent SSR errors
+    if (typeof window === "undefined") return;
 
     const updateColumns = () => {
       if (window.innerWidth >= 1500) {
@@ -33,7 +33,7 @@ const Client = ({ data }) => {
 
     const handleResize = () => {
       if (ref.current) {
-        setWidth(ref.current.offsetWidth || 0); // Prevent undefined width
+        setWidth(ref.current.offsetWidth || 0);
       }
     };
 
@@ -42,11 +42,10 @@ const Client = ({ data }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Ensure `data` is always an array
   const safeData = Array.isArray(data) ? data : [];
 
   const [heights, gridItems] = useMemo(() => {
-    if (!safeData.length) return [[], []]; // Handle empty data
+    if (!safeData.length) return [[], []];
 
     let heights = new Array(columns).fill(0);
     let gridItems = safeData.map((child) => {

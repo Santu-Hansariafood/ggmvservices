@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Typewriter from "typewriter-effect";
 import Image from "next/image";
+import Loading from "@/components/common/Loading/Loading";
 
 /**
  * @typedef {Object} Slide
@@ -50,44 +51,54 @@ const Home = () => {
   };
 
   return (
-    <div className="w-full h-screen overflow-hidden bg-black">
-      {loading ? (
-        <p className="text-center text-white text-xl mt-20">Loading slides...</p>
-      ) : slides.length > 0 ? (
-        <Slider {...settings}>
-          {slides.map((slide, index) => (
-            <div key={index} className="relative w-full h-screen">
-              <Image
-                src={slide.image}
-                alt={`Slide ${index + 1}`}
-                fill
-                style={{ objectFit: "cover" }}
-                priority
-                className="z-0"
-              />
+    <Suspense fallback={<Loading />}>
+      <div className="w-full h-screen overflow-hidden bg-black">
+        {loading ? (
+          <p className="text-center text-white text-xl mt-20">
+            Loading slides...
+          </p>
+        ) : slides.length > 0 ? (
+          <Slider {...settings}>
+            {slides.map((slide, index) => (
+              <div key={index} className="relative w-full h-screen">
+                <Image
+                  src={slide.image}
+                  alt={`Slide ${index + 1}`}
+                  fill
+                  style={{ objectFit: "cover" }}
+                  priority
+                  className="z-0"
+                />
 
-              <div className="absolute inset-0 flex flex-col items-start justify-center bg-black bg-opacity-50 text-white p-8 text-left z-10">
-                <h1 className="text-4xl md:text-6xl font-bold">
-                  <Typewriter
-                    options={{
-                      strings: [slide.title, `Discover ${slide.title}`],
-                      autoStart: true,
-                      loop: true,
-                      delay: 50,
-                      deleteSpeed: 30,
-                    }}
-                  />
-                </h1>
-                <p className="text-lg md:text-2xl mt-2">{slide.description}</p>
-                <p className="text-lg md:text-xl mt-6 italic text-right">{slide.extraText}</p>
+                <div className="absolute inset-0 flex flex-col items-start justify-center bg-black bg-opacity-50 text-white p-8 text-left z-10">
+                  <h1 className="text-4xl md:text-6xl font-bold">
+                    <Typewriter
+                      options={{
+                        strings: [slide.title, `Discover ${slide.title}`],
+                        autoStart: true,
+                        loop: true,
+                        delay: 50,
+                        deleteSpeed: 30,
+                      }}
+                    />
+                  </h1>
+                  <p className="text-lg md:text-2xl mt-2">
+                    {slide.description}
+                  </p>
+                  <p className="text-lg md:text-xl mt-6 italic text-right">
+                    {slide.extraText}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
-        </Slider>
-      ) : (
-        <p className="text-center text-white text-xl mt-20">No slides available</p>
-      )}
-    </div>
+            ))}
+          </Slider>
+        ) : (
+          <p className="text-center text-white text-xl mt-20">
+            No slides available
+          </p>
+        )}
+      </div>
+    </Suspense>
   );
 };
 

@@ -1,12 +1,16 @@
-"use client"
+"use client";
 
 import dynamic from "next/dynamic";
 import ProfileImage1 from "../../../../public/images/woner/rahul.webp";
 import ProfileImage2 from "../../../../public/images/woner/woner2.webp";
 import ProfileImage3 from "../../../../public/images/woner/woner-3.webp";
+import { Suspense } from "react";
+import Loading from "@/components/common/Loading/Loading";
 
-const Cards = dynamic(()=>import("@/components/common/Cards/Cards"));
-const DecryptedText = dynamic(()=>import("@/components/animation/DecryptedText/DecryptedText"));
+const Cards = dynamic(() => import("@/components/common/Cards/Cards"));
+const DecryptedText = dynamic(() =>
+  import("@/components/animation/DecryptedText/DecryptedText")
+);
 
 const Directors = () => {
   const teamMembers = [
@@ -46,35 +50,34 @@ const Directors = () => {
   ];
 
   return (
-      <div className="w-full flex flex-col items-center space-y-8 p-10">
-        {/* Title with Two Colors */}
-        <h1 className="text-3xl font-bold text-center">
-          <span className="text-yellow-500">Meet Our</span>{" "}
-          <span className="text-gray-800">Directors</span>
-        </h1>
-        
-        {/* DecryptedText Component instead of <p> */}
-        <DecryptedText
-          text="Our team brings decades of experience in railway logistics, labor management, and supply chain solutions. We are dedicated to delivering excellence and efficiency in every project."
-          speed={50}
-          maxIterations={10}
-          sequential={true}
-          revealDirection="start"
-          className="text-center text-gray-600 max-w-2xl"
-        />
+    <Suspense fallback={<Loading/>}>
+    <div className="w-full flex flex-col items-center space-y-8 p-10">
+      <h1 className="text-3xl font-bold text-center">
+        <span className="text-yellow-500">Meet Our</span>{" "}
+        <span className="text-gray-800">Directors</span>
+      </h1>
+      <DecryptedText
+        text="Our team brings decades of experience in railway logistics, labor management, and supply chain solutions. We are dedicated to delivering excellence and efficiency in every project."
+        speed={50}
+        maxIterations={10}
+        sequential={true}
+        revealDirection="start"
+        className="text-center text-gray-600 max-w-2xl"
+      />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {teamMembers.map((member, index) => (
-            <Cards
-              key={index}
-              image={member.image}
-              name={member.name}
-              title={member.title}
-              socialLinks={member.socialLinks}
-            />
-          ))}
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {teamMembers.map((member, index) => (
+          <Cards
+            key={index}
+            image={member.image}
+            name={member.name}
+            title={member.title}
+            socialLinks={member.socialLinks}
+          />
+        ))}
       </div>
+    </div>
+    </Suspense>
   );
 };
 

@@ -19,7 +19,6 @@ export default function Page({ params }) {
 
   return (
     <div className="p-6">
-      {/* ✅ JSON-LD is added here */}
       <Script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}

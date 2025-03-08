@@ -1,4 +1,6 @@
+import { Suspense } from "react";
 import dynamic from "next/dynamic";
+import Loading from "@/components/common/Loading/Loading";
 const Client = dynamic(() => import("@/components/ui/Clients/Clients"));
 
 const data = [
@@ -16,14 +18,14 @@ const data = [
 
 const Page = () => {
   return (
-    <>
+    <Suspense fallback={<Loading />}>
       <div className="p-8">
         <h1 className="text-3xl font-bold text-center mb-6">
           Valuable Clients
         </h1>
         <Client data={data} />
       </div>
-    </>
+    </Suspense>
   );
 };
 

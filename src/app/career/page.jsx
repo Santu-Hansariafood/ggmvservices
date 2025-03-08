@@ -1,10 +1,13 @@
-import Career from "@/components/ui/Career/Career";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
+
+const Career = dynamic(() => import("@/components/ui/Career/Career"));
 
 const Page = () => {
   return (
-    <>
-      <Career/>
-    </>
+    <Suspense fallback={<Loading />}>
+      <Career />
+    </Suspense>
   );
 };
 

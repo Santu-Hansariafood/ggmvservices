@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect } from "react";
 import {
   Clock as e,
   PerspectiveCamera as t,
@@ -36,11 +36,18 @@ class x {
   scene;
   renderer;
   #t;
-  size = { width: 0, height: 0, wWidth: 0, wHeight: 0, ratio: 0, pixelRatio: 0 };
+  size = {
+    width: 0,
+    height: 0,
+    wWidth: 0,
+    wHeight: 0,
+    ratio: 0,
+    pixelRatio: 0,
+  };
   render = this.#i;
-  onBeforeRender = () => { };
-  onAfterRender = () => { };
-  onAfterResize = () => { };
+  onBeforeRender = () => {};
+  onAfterRender = () => {};
+  onAfterResize = () => {};
   #s = false;
   #n = false;
   isDisposed = false;
@@ -141,7 +148,10 @@ class x {
     if (this.camera.isPerspectiveCamera && this.cameraFov) {
       if (this.cameraMinAspect && this.camera.aspect < this.cameraMinAspect) {
         this.#A(this.cameraMinAspect);
-      } else if (this.cameraMaxAspect && this.camera.aspect > this.cameraMaxAspect) {
+      } else if (
+        this.cameraMaxAspect &&
+        this.camera.aspect > this.cameraMaxAspect
+      ) {
         this.#A(this.cameraMaxAspect);
       } else {
         this.camera.fov = this.cameraFov;
@@ -151,14 +161,14 @@ class x {
     this.updateWorldSize();
   }
   #A(e) {
-    const t = Math.tan(o.degToRad(this.cameraFov / 2)) / (this.camera.aspect / e);
+    const t =
+      Math.tan(o.degToRad(this.cameraFov / 2)) / (this.camera.aspect / e);
     this.camera.fov = 2 * o.radToDeg(Math.atan(t));
   }
   updateWorldSize() {
     if (this.camera.isPerspectiveCamera) {
       const e = (this.camera.fov * Math.PI) / 180;
-      this.size.wHeight =
-        2 * Math.tan(e / 2) * this.camera.position.length();
+      this.size.wHeight = 2 * Math.tan(e / 2) * this.camera.position.length();
       this.size.wWidth = this.size.wHeight * this.camera.aspect;
     } else if (this.camera.isOrthographicCamera) {
       this.size.wHeight = this.camera.top - this.camera.bottom;
@@ -210,14 +220,14 @@ class x {
   }
   clear() {
     this.scene.traverse((e) => {
-      if (
-        e.isMesh &&
-        typeof e.material === "object" &&
-        e.material !== null
-      ) {
+      if (e.isMesh && typeof e.material === "object" && e.material !== null) {
         Object.keys(e.material).forEach((t) => {
           const i = e.material[t];
-          if (i !== null && typeof i === "object" && typeof i.dispose === "function") {
+          if (
+            i !== null &&
+            typeof i === "object" &&
+            typeof i.dispose === "function"
+          ) {
             i.dispose();
           }
         });
@@ -245,10 +255,10 @@ function S(e) {
     position: new r(),
     nPosition: new r(),
     hover: false,
-    onEnter() { },
-    onMove() { },
-    onClick() { },
-    onLeave() { },
+    onEnter() {},
+    onMove() {},
+    onClick() {},
+    onLeave() {},
     ...e,
   };
   (function (e, t) {
@@ -361,7 +371,13 @@ class W {
     }
   }
   update(e) {
-    const { config: t, center: i, positionData: s, sizeData: n, velocityData: o } = this;
+    const {
+      config: t,
+      center: i,
+      positionData: s,
+      sizeData: n,
+      velocityData: o,
+    } = this;
     let r = 0;
     if (t.controlSphere0) {
       r = 1;
@@ -395,7 +411,9 @@ class W {
         const sumRadius = radius + otherRadius;
         if (dist < sumRadius) {
           const overlap = sumRadius - dist;
-          j.copy(_).normalize().multiplyScalar(0.5 * overlap);
+          j.copy(_)
+            .normalize()
+            .multiplyScalar(0.5 * overlap);
           H.copy(j).multiplyScalar(Math.max(B.length(), 1));
           T.copy(j).multiplyScalar(Math.max(N.length(), 1));
           I.sub(j);
@@ -468,7 +486,10 @@ class Y extends c {
         "RE_Direct( directLight, geometryPosition, geometryNormal, geometryViewDir, geometryClearcoatNormal, material, reflectedLight );",
         "\n          RE_Direct( directLight, geometryPosition, geometryNormal, geometryViewDir, geometryClearcoatNormal, material, reflectedLight );\n          RE_Direct_Scattering(directLight, vUv, geometryPosition, geometryNormal, geometryViewDir, geometryClearcoatNormal, reflectedLight);\n        "
       );
-      e.fragmentShader = e.fragmentShader.replace("#include <lights_fragment_begin>", t);
+      e.fragmentShader = e.fragmentShader.replace(
+        "#include <lights_fragment_begin>",
+        t
+      );
       if (this.onBeforeCompile2) this.onBeforeCompile2(e);
     };
   }
@@ -497,7 +518,7 @@ const X = {
   maxY: 5,
   maxZ: 2,
   controlSphere0: false,
-  followCursor: true,  // Added default for followCursor
+  followCursor: true, // Added default for followCursor
 };
 
 const U = new m();
@@ -643,7 +664,7 @@ function createBallpit(e, t = {}) {
   };
 }
 
-const Ballpit = ({ className = '', followCursor = true, ...props }) => {
+const Ballpit = ({ className = "", followCursor = true, ...props }) => {
   const canvasRef = useRef(null);
   const spheresInstanceRef = useRef(null);
 
@@ -651,7 +672,10 @@ const Ballpit = ({ className = '', followCursor = true, ...props }) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    spheresInstanceRef.current = createBallpit(canvas, { followCursor, ...props });
+    spheresInstanceRef.current = createBallpit(canvas, {
+      followCursor,
+      ...props,
+    });
 
     return () => {
       if (spheresInstanceRef.current) {
@@ -662,12 +686,7 @@ const Ballpit = ({ className = '', followCursor = true, ...props }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return (
-    <canvas
-      className={`${className} w-full h-full`}
-      ref={canvasRef}
-    />
-  );
+  return <canvas className={`${className} w-full h-full`} ref={canvasRef} />;
 };
 
 export default Ballpit;
