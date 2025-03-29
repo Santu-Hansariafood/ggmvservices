@@ -1,4 +1,5 @@
 import Loading from "@/components/common/Loading/Loading";
+import ScrollToTop from "@/components/common/ScrollToTop/ScrollToTop";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
 
@@ -20,25 +21,26 @@ export default function HomePage() {
         <div className="w-full flex items-center justify-center">
           <Home />
         </div>
-        <div className="w-full py-6 flex items-center justify-center">
+        <div className="w-full  flex items-center justify-center">
           <About />
         </div>
         <div className="w-full flex items-center justify-center">
           <Directors />
         </div>
-        <div className="w-full py-6 flex items-center justify-center">
+        <div className="w-full  flex items-center justify-center">
           <Client />
         </div>
         <StatsSection />
-        <div className="w-full py-6 flex items-center justify-center">
+        <div className="w-full  flex items-center justify-center">
           <Services />
         </div>
-        <div className="w-full py-6 flex items-center justify-center">
+        <div className="w-full  flex items-center justify-center">
           <Contact />
         </div>
-        <div className="w-full py-6 flex items-center justify-center">
+        <div className="w-full  flex items-center justify-center">
           <Locations />
         </div>
+        <ScrollToTop/>
       </main>
     </Suspense>
   );
